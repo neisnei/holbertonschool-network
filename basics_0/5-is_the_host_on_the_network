@@ -1,12 +1,9 @@
 #!/usr/bin/env bash
-# Check if an IP address was passed as an argument
-if [ $# -eq 0 ]; then
-     echo "You must provide an IP address as an argument."
-     exit 1
+# pings an IP address passed as an argument
+
+if [ $# -gt 0 ]
+then
+	ping -c 5 "$1"
+else
+	echo "Usage: 5-is_the_host_on_the_network {IP_ADDRESS}"
 fi
-
-# Get the IP address of the argument
-ip_address=$1
-
-# Ping the IP address
-ping -c 4 $ip_address
